@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First App-About</title>
+  </head>
+
+  <body>
+    <div>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/first_app/">First App</a>
+      </li>
+      <li>
+        <a href="/first_app/about">About</a>
+      </li>
+    </div>
+    <div>
+      <h1>This is First app About.</h1>
+    </div>
+    <div>
+      <h4>{{ books|join:' - ' }}</h4>
+      <h4>The time is: {{ time|date:'D d M Y' }}</h4>
+      <h4>Here is anothe format: {{ time|date:'SHORT_DATE_FORMAT' }}</h4>
+      <h4>{{ time|date }}</h4>
+      <h4>{{ dream|default:'nothing here' }}</h4>
+      <h4>{{ title|add:'7' }}.</h4>
+      <h4>{{ course|capfirst }}</h4>
+      <h4>{{ title|cut:' ' }}.</h4>
+      <h4>{{ friends|dictsort:'name' }}</h4>
+      <h4>{{ title|escape }}</h4>
+      <h4>The first letter Is: {{ title|first }}</h4>
+      <h4>The Last Letter Is: {{ title|last }}</h4>
+      <h4>The length of title is: {{ title|length }}</h4>
+      <h4>{{ books|linenumbers }}</h4>
+      <h4>{{ title|lower }}</h4>
+      <h4>{{ title|upper }}</h4>
+      <h4>{{ title|title }}</h4>
+      <h4>{{ books|random }}</h4>
+      <h4>{{ values|slice:'3' }}</h4>
+      <h4>{{ title|truncatechars:17 }}</h4>
+      <h4>{{ title|wordcount }}</h4>
+      <h4>{{ title|truncatewords:5 }}</h4>
+      <h4>{{ title|striptags }}</h4>
+      {% comment %} <h4>{{ title|pluralize }}</h4> {% endcomment %}
+      <h4>{{ name|make_list }}</h4>
+    </div>
+  </body>
+</html>

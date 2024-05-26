@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First App-Home</title>
+  </head>
+
+  <body>
+    <div>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/first_app/">First App</a>
+      </li>
+      <li>
+        <a href="/first_app/about">About</a>
+      </li>
+    </div>
+    <div>
+      <h1>This is First app Home.</h1>
+
+      <div>
+        {% comment %} <h1>{{ author|escape }}</h1> {% endcomment %}
+        <h1>{{ author|linebreaks }}</h1>
+        <h1>{{ author|length }}</h1>
+        <p>{{ author|add:' 200' }}</p>
+        <p>{{ list|addslashes }}</p>
+        <p>{{ friend|capfirst }}</p>
+        <p>"{{ friend|center:'15' }}"</p>
+        <p>{{ author|cut:' ' }}</p>
+        <h3>{{ birthday|date:'D d M Y' }}</h3>
+        <h1>{{ val|default:'nothing' }}</h1>
+        <h1>{{ courses|dictsort:'name' }}</h1>
+        <h1>{{ serial|divisibleby:10 }}</h1>
+        <h1>{{ title|escape }}</h1>
+        <h1>{{ list|filesizeformat }}</h1>
+        <h1>{{ list|last }}</h1>
+        <h1>{{ title|linenumbers }}</h1>
+        <h1>{{ author|lower }}</h1>
+        <h3>{{ friend|make_list }}</h3>
+        <h1>{{ friend|random }}</h1>
+        <h1>{{ title|slice:':20' }}</h1>
+        <h1>{{ friend|slugify }}</h1>
+        <h1>{{ list|time:'H:i' }}</h1>
+        {% comment %} <h1>{{ time|timesince:post}}</h1> {% endcomment %}
+        <h1>{{ title | title }}</h1>
+        {% comment %} <h1>{{ title | unordered_list }}</h1> {% endcomment %}
+        <h1>{{ friend | upper }}</h1>
+        <h1>{{ title | wordcount }}</h1>
+      </div>
+    </div>
+  </body>
+</html>
