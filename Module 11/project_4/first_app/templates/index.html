@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>This Is about</h1>
+
+  {% comment %} <h1>{{ id.name }}</h1> {% endcomment %}
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">user Id</th>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+        <tr>
+          <th scope="row">{{ i.userId }}</th>
+          <td>{{ i.id }}</td>
+          <td>{{ i.title }}</td>
+          <td>{{ i.body }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <img style="width: 400px; height: 300px;"
+   src="{% static 'images/3.jpg' %}" alt="" />
+{% endblock %}
