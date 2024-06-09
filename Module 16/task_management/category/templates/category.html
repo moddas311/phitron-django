@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load  crispy_forms_tags %}
+{% block content %}
+<div  class="box">
+  <form class="text-dark p-3" style="width: 50%; margin:auto" action="" method='post'>
+    {% csrf_token%}
+    <h2 class="text-center my-3">Add Category</h2>
+    {{ form|crispy }}
+    <div class="text-center">
+      <button class='btn btn-info text-white fw-bold'>Submit</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}
