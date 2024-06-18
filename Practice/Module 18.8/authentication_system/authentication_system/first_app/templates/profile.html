@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1 class="text-center mt-2">Profile</h1>
+<h6 class="text-center">{{ user }}</h6>
+
+{% comment %} <div class="text-center text-success">
+    {% if messages %}
+    {% for m in messages %}
+    {{m}}
+    {% endfor %}
+    {% endif %}
+</div> {% endcomment %}
+
+<form style="width: 35%; margin: auto" method="post" novalidate>
+    
+    {% csrf_token %}
+    <!-- {{ form|crispy }} -->
+
+    {% for fm in form %}
+    {{fm.label_tag}}
+    {{fm}}
+    {{fm.errors | striptags}}
+    {% endfor %}
+
+    <small>
+        <a style="text-decoration: none;" href="{% url 'pass_change' %}">Change Your Password</a>
+    </small>
+
+    <div class="d-flex justify-content-center mb-5">
+        <button class="btn btn-info">Upload</button>
+    </div>
+</form>
+{% endblock %}
