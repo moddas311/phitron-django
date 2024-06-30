@@ -82,4 +82,4 @@ def pass_change(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('profile')
+    return redirect('home')
