@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+{% if messages %}
+{% for m in messages %}
+<p class='text-info p-4'>{{m}}</p>
+<br>
+{% endfor %}
+
+{% endif %}
+
+
+<form method='post' style='width:30%; margin:auto'>
+    <h1 class="text-center">{{type}}</h1>
+    {% csrf_token%}
+    <!--  {{form | crispy}} -->
+    {% for fm in form %}
+    {{fm.label_tag}}
+    {{fm}}
+    {{fm.errors | striptags}}
+    {% endfor %}
+    <div class="mt-2 text-center">
+        <button class='btn btn-primary' type='submit'>Log In</button>
+    </div>
+</form>
+{% endblock content %}

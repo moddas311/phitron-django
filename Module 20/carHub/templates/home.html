@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class='row d-flex justify-content-between flex-wrap align-items-center ms-2 p-5 gap-2'>
+
+    <div class='col-lg-5'>
+        <h1 class="text-primary my-2">Welcome to<br> CURHUB</h1>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, aspernatur commodi magni ab culpa laborum
+            itaque doloremque non ea reiciendis accusantium eligendi, soluta possimus quis quibusdam accusamus rem sit?
+            Non, minus ratione officiis numquam repellendus aliquid mollitia excepturi porro nesciunt est, nobis quae?
+            Perferendis, iusto doloremque aspernatur consequatur, itaque ad quis ipsum quisquam in cupiditate
+            consequuntur magni? Molestias consectetur impedit accusamus quaerat facere perferendis. Reprehenderit
+            laboriosam a molestias laborum aliquam?
+        </p>
+    </div>
+    <div class='col-lg-6 align-items-center'>
+        <img src="{% static 'Banner.jpeg'%}" style='width:100%;' alt="car-img">
+    </div>
+</div>
+
+<div class='row justify-content-evenly mb-4 m-auto'>
+    <div class='d-flex flex-wrap p-4 justify-content-center'>
+        {% for brand in brands%}
+        <a style="background-color: #e3f2fd;" href="{% url 'brand' brand.slug%}" class='btn btn-sm m-1 text-decoration-none'>
+            {{brand.name}}
+        </a>
+        {% endfor%}
+    </div>
+
+    {% for car in cars %}
+    <div class="card text-dark col-4 mt-2 p-2 justify-content-center" style="width:25rem;">
+        <img style='width:382px; height:400px; border-radius: 10px;' src="{{car.image.url}}" class="card-img-top" alt="Car picture">
+        <div style="background-color: #e3f2fd;" class="card-body">
+            <a href="{% url 'details' car.id%}" class='text-decoration-none text-dark'>
+                <h4>Name: {{car.name}}</h4>
+            </a>
+            <small><b>Price: {{car.price}}</b><br>
+                Quantity: {{car.quantity}} <br>
+                Description: {{car.description | truncatewords:5}}</small> <br>
+            {% if user.is_authenticated %}
+            <div class="d-flex flex-end">
+                <a href="{% url 'buy' car.id%}" class='btn mt-1 btn-sm btn-success'>Buy Now</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

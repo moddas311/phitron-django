@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="text-center my-3">
+    <a href="{% url 'update' user.id%}" class='btn btn-primary'>Edit Profile</a>
+</div>
+<br>
+{% if messages %}
+{% for m in messages %}
+<p class='text-white p-4'>{{m}}</p>
+<br>
+{% endfor %}
+{% endif %}
+<br>
+
+<div class='row mt-5 justify-content-center m-auto'>
+    <h1 class='text-center mb-4 text-primary'>Bought Car List</h1>
+    {% for buy in cars %}
+    <div class="card align-items-center col-lg-12 m-2 p-2 justify-content-center"
+        style='width:50%; margin:auto'>
+        <div class='text-center'>
+            <img style="border-radius: 10px" src="{{buy.car.image.url}}" class="card-img-top text-aligns-center" alt="...">
+        </div>
+        <div class="card mt-2 p-3">
+            <h5>Name: {{buy.car.name}}</h5>
+            <p class="text-danger">price: {{buy.car.price}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
